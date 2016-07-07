@@ -1,0 +1,14 @@
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\bin\Debug\IDParserWPF.exe.config
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\bin\Debug\IDParserWPF.exe
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\bin\Debug\IDParserWPF.pdb
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\obj\Debug\IDParserWPF.csprojResolveAssemblyReference.cache
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\obj\Debug\MainWindow.g.cs
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\obj\Debug\App.g.cs
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\obj\Debug\IDParserWPF_MarkupCompile.cache
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\obj\Debug\IDParserWPF_MarkupCompile.lref
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\obj\Debug\MainWindow.baml
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\obj\Debug\IDParserWPF.g.resources
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\obj\Debug\IDParserWPF.Properties.Resources.resources
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\obj\Debug\IDParserWPF.csproj.GenerateResource.Cache
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\obj\Debug\IDParserWPF.exe
+c:\users\becky\documents\visual studio 2015\Projects\IDParserWPF\IDParserWPF\obj\Debug\IDParserWPF.pdb

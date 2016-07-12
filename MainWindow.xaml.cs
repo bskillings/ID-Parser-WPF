@@ -24,25 +24,25 @@ namespace IDParserWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        FileConverter converter = new FileConverter();
 
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private FileConverter converter = new FileConverter();
+            basicGrid.DataContext = converter;
+        }
 
         private void browseButton_Click(object sender, RoutedEventArgs e)
         {
-            string inputFile = converter.FindFile();
-            inputFilenameTextbox.Text = inputFile;
+            converter.FindFile();
+            
         }
 
         private void convertButton_Click(object sender, RoutedEventArgs e)
         {
-            string messageText = converter.ConvertFile(inputFilenameTextbox.Text, outputFilenameTextbox.Text);
-            messageBlock.Text = messageText;
+            converter.ConvertFile();
         }
 
-    }
+     }
 }

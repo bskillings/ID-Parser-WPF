@@ -5,14 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32;
 using System.IO;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Forms;
+
+
 
 namespace IDParserWPF
 {
-    public class FileConverter
+    public class FileConverter: INotifyPropertyChanged
     {
-        public string FindFile()
+     
+        public string InputFileName { get; set; }
+        public string OutputFileName { get; set; } = "Output.txt";
+        public string Message { get; set; } = "";
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void FindFile()
         {
-            var openDialog = new OpenFileDialog
+            var openDialog = new Microsoft.Win32.OpenFileDialog
             {
                 DefaultExt = ".txt"
             };
@@ -21,36 +33,36 @@ namespace IDParserWPF
 
             if (result == true)
             {
-                string inputName = openDialog.FileName;
-                return inputName;
-
+                InputFileName = openDialog.FileName;
+                OnPropertyChanged("InputFileName");
+   
             }
-            return "";
         }
+ 
 
-        public string ConvertFile(string inputName, string outputName)
+        public void ConvertFile()
         {
             const string textMarker = "|11=";
             var random = new Random();
             
             //Check if file exists
-            if (!File.Exists(inputName))
+            if (!File.Exists(InputFileName))
             {
-                Console.WriteLine(inputName + " does not exist");
-                return "";
+                Console.WriteLine(InputFileName + " does not exist");
+                return;
             }
 
             //check if file is empty
-            if (new FileInfo(inputName).Length == 0)
+            if (new FileInfo(InputFileName).Length == 0)
             {
-                Console.WriteLine(inputName + " is empty");
-                return "";
+                Console.WriteLine(InputFileName + " is empty");
+                return;
             }
 
 
             //main functionality starts here 
-            using (var reader = new StreamReader(inputName))
-            using (var writer = new StreamWriter(outputName))
+            using (var reader = new StreamReader(InputFileName))
+            using (var writer = new StreamWriter(OutputFileName))
             {
                 while (!reader.EndOfStream)
                 {
@@ -75,7 +87,14 @@ namespace IDParserWPF
                     writer.WriteLine(lineGoingOut);
                 }
             }
-            return " Done";
+            Message = "Done";
+            OnPropertyChanged("Message");
         }
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }

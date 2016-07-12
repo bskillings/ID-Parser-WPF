@@ -5,14 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IDParserWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Button x:Name="browseButton" Content="Browse" HorizontalAlignment="Left" Margin="374,38,0,0" VerticalAlignment="Top" Width="75" Click="browseButton_Click"/>
-        <TextBox x:Name="inputFilenameTextbox" HorizontalAlignment="Left" Height="58" Margin="37,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="306"/>
-        <TextBox x:Name="outputFilenameTextbox" HorizontalAlignment="Left" Height="65" Margin="37,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="306"/>
-        <Button x:Name="convertButton" Content="Convert" HorizontalAlignment="Left" Margin="374,130,0,0" VerticalAlignment="Top" Width="75" Click="convertButton_Click"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="37,10,0,0" TextWrapping="Wrap" Text="File to convert" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="37,101,0,0" TextWrapping="Wrap" Text="Output file" VerticalAlignment="Top"/>
-        <TextBlock x:Name="messageBlock" HorizontalAlignment="Left" Margin="37,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="95" Width="306"/>
+        Title="ID Converter" Height="350" Width="525" Visibility="Visible">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF4B4B4B" Offset="0"/>
+            <GradientStop Color="#FFEEE8E8" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid x:Name="basicGrid" Background="#FF315478">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="167*"/>
+            <ColumnDefinition Width="247*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="103*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="browseButton" Content="Browse" HorizontalAlignment="Left" Margin="207,76,0,0" VerticalAlignment="Top" Width="100" Click="browseButton_Click" Grid.Column="1" Grid.ColumnSpan="3" Height="20" BorderThickness="0">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4B4B4B"/>
+                    <GradientStop Color="#FFEEE8E8" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="inputFilenameTextbox" HorizontalAlignment="Left" Height="20" Margin="37,76,0,0" TextWrapping="Wrap" Text="{Binding InputFileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="326" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="outputFilenameTextbox" HorizontalAlignment="Left" Height="20" Margin="37,130,0,0" TextWrapping="Wrap" Text="{Binding OutputFileName, Mode=TwoWay}" VerticalAlignment="Top" Width="326" Grid.ColumnSpan="2"/>
+        <Button x:Name="convertButton" Content="Convert" HorizontalAlignment="Left" Margin="37,172,0,0" VerticalAlignment="Top" Width="100" Click="convertButton_Click" Height="20" BorderThickness="0">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4B4B4B" Offset="0"/>
+                    <GradientStop Color="#FFEEE8E8" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="37,47,0,0" TextWrapping="Wrap" Text="File to convert" VerticalAlignment="Top" Height="16" Width="100"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="37,101,0,0" TextWrapping="Wrap" Text="Output file" VerticalAlignment="Top" Height="16" Width="57"/>
+        <TextBlock x:Name="messageBlock" HorizontalAlignment="Left" Margin="37,204,0,0" TextWrapping="Wrap" Text="{Binding Message}" VerticalAlignment="Top" Height="95" Width="306" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
